@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+} canvas {
+    background-color: pink;
+    border: 1px solid #333;
+}
+
+    </style>
+</head>
+<body>
+    <h1>GOTCHAAA</h1>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+<script>
+ // Game variables
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Player variables
+const playerWidth = 50;
+const playerHeight = 50;
+let playerX = canvas.width / 2 - playerWidth / 2;
+const playerY = canvas.height - playerHeight - 10;
+const playerSpeed = 5;
+
+// Bullet variables
+const bulletWidth = 5;
+const bulletHeight = 15;
+let bulletX = playerX + playerWidth / 2 - bulletWidth / 2;
+let bulletY = playerY - bulletHeight;
+let bulletSpeed = 7;
+let bulletFired = false;
+
+// Enemy variables
+const enemyWidth = 30;
+const enemyHeight = 30;
+const enemySpeed = 2;
+let enemyX = Math.random() * (canvas.width - enemyWidth);
+let enemyY = 10;
+
+// Keyboard controls
+let leftPressed = false;
+let rightPressed = false;
+let spacePressed = false;
+
+// Event listeners for keyboard controls
+document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
+
+function keyDownHandler(event) {
+    if (event.key === 'ArrowLeft') {
+        leftPressed = true;
+    } else if (event.key === 'ArrowRight') {
+        rightPressed = true;
+    } else if (event.key === ' ') {
+        spacePressed = true;
+    }
+}
+
+function keyUpHandler(event) {
+    if (event.key === 'ArrowLeft') {
+        leftPressed = false;
+    } else if (event.key === 'ArrowRight') {
+        rightPressed = false;
+    } else if (event.key === ' ') {
+        spacePressed = false;
+    }
+}
+
+// Update game objects
+function update() {
+    // Move player
+    if (leftPressed && playerX > 0) {
+        playerX -= playerSpeed;
+    } else if (rightPressed && playerX < canvas.width - playerWidth) {
+        playerX += playerSpeed;
+    }
+
+    // Fire bullet
+    if (spacePressed && !bulletFired) {
+        bulletX = playerX + playerWidth / 2 - bulletWidth / 2;
+        bulletY = playerY - bulletHeight;
+        bulletFired = true;
+    }
+    // Move bullet
+    if (bulletFired) {
+        bulletY -= bulletSpeed;
+
+        // Check collision with enemy
+        if (bulletX < enemyX + enemyWidth && bulletX + bulletWidth > enemyX &&
+            bulletY < enemyY + enemyHeight && bulletY + bulletHeight > enemyY) {
+            // Collision detected, reset enemy position
+            enemyX = Math.random() * (canvas.width - enemyWidth);
+            enemyY = 10;
+            bulletFired = false;
+        }
+        // Check if bullet is out of canvas
+        if (bulletY < 0) {
+            bulletFired = false;
+        }
+    }
+    // Move enemy
+    enemyY += enemySpeed;
+
+    // Check if enemy reaches bottom
+    if (enemyY > canvas.height) {
+        // Reset enemy position
+        enemyX = Math.random() * (canvas.width - enemyWidth);
+        enemyY = 10;
+    }
+}
+// Draw game objects
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw player
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(playerX, playerY, playerWidth, playerHeight);
+    // Draw bullet
+    if (bulletFired) {
+        ctx.fillStyle = 'red';
+        ctx.fillRect(bulletX, bulletY, bulletWidth, bulletHeight);
+    }
+    // Draw enemy
+    ctx.fillStyle = 'green';
+    ctx.fillRect(enemyX, enemyY, enemyWidth, enemyHeight);
+}
+// Game loop
+function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+}
+gameLoop();
+    </script>
+    <h2>THANK U FOR TRY MY GAME, HAVE FUNN</h2>
+</body>
+</html>
