@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowongan Kerja di Indonesia</title>
+    <title>Loker nya kak ehe</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color:black;
+            color: white;
         }
         header {
-            background-color: #007BFF;
-            color: white;
+            background-color: red;
+            color: blanchedalmond;
             padding: 10px 20px;
             text-align: center;
         }
@@ -22,7 +22,7 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: white;
+            background: green;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -42,7 +42,7 @@
             font-weight: bold;
         }
         .job-company {
-            color: #555;
+            color: white;
         }
         .job-location {
             color: #777;
@@ -50,27 +50,64 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #007BFF;
+            background-color: black;
             color: white;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Lowongan Kerja Terbaru di Indonesia</h1>
+        <h1>Lowongan Kerja</h1>
     </header>
     <div class="container">
         <ul class="job-list" id="jobList">
             <!-- Lowongan kerja akan ditambahkan di sini oleh JavaScript -->
         </ul>
     </div>
-    <footer>
-        &copy; 2024 Lowongan Kerja Indonesia
-    </footer>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Lamaran Pekerjaan</title>
+</head>
+<body>
+  <h2 style="color: blueviolet;">Form Lamaran Pekerjaan</h2>
+  <p>isi form dibawah ini!</p>
+  <form id="jobApplicationForm">
+    <label for="fullName">Nama Lengkap:</label><br>
+    <input type="text" id="fullName" name="fullName" required><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="phone">Nomor Telepon:</label><br>
+    <input type="tel" id="phone" name="phone" required><br><br>
+    
+    <label for="resume">Resume / CV (PDF):</label><br>
+    <input type="file" id="resume" name="resume" accept=".pdf" required><br><br>
+    
+    <label for="message">Pesan Tambahan:</label><br>
+    <textarea id="message" name="message" rows="4"></textarea><br><br>
+    
+    <button type="submit">Kirim Lamaran</button>
+  </form>
+
+  <div id="responseMessage"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
     <script>
         // Data lowongan kerja (contoh)
         const jobs = [
-            {
+        {
+                title: 'Tukang galon',
+                company: '',
+                location: 'Darjo',
+                description: 'Kerja apa aja yang penting halal'
+            },{
                 title: 'Software Engineer',
                 company: 'PT. Tech Innovations',
                 location: 'Jakarta',
@@ -87,6 +124,11 @@
                 company: 'PT. Creative Minds',
                 location: 'Bandung',
                 description: 'Menciptakan desain antarmuka dan pengalaman pengguna yang luar biasa.'
+            },{
+                title: 'Barista',
+                company: '',
+                location: 'Darjo',
+                description: 'Minimal SMA'
             }
         ];
 
@@ -112,6 +154,24 @@
 
         // Panggil fungsi untuk menampilkan lowongan kerja ketika halaman dimuat
         window.onload = displayJobs;
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  // Collect form data
+  let formData = new FormData(this);
+
+  // Simulate sending the data to a server (replace with actual server-side logic)
+  setTimeout(function() {
+    // Display a message that the application has been submitted
+    document.getElementById('responseMessage').innerHTML = '<p>Lamaran Anda telah berhasil dikirim!</p>';
+
+    // Clear the form after submission (optional)
+    document.getElementById('jobApplicationForm').reset();
+  }, 1000); // Simulate 1 second delay (replace with actual AJAX request)
+});
+alert("HALO PENGANGGURAN:)");
+alert("wkwk bercandya, silahkan cari pekerjaan kamu");
+
     </script>
 </body>
 </html>
