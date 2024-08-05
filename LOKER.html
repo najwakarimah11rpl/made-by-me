@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowongan Kerja di Indonesia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .job-list {
+            list-style: none;
+            padding: 0;
+        }
+        .job-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        .job-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .job-company {
+            color: #555;
+        }
+        .job-location {
+            color: #777;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lowongan Kerja Terbaru di Indonesia</h1>
+    </header>
+    <div class="container">
+        <ul class="job-list" id="jobList">
+            <!-- Lowongan kerja akan ditambahkan di sini oleh JavaScript -->
+        </ul>
+    </div>
+    <footer>
+        &copy; 2024 Lowongan Kerja Indonesia
+    </footer>
+    <script>
+        // Data lowongan kerja (contoh)
+        const jobs = [
+            {
+                title: 'Software Engineer',
+                company: 'PT. Tech Innovations',
+                location: 'Jakarta',
+                description: 'Bergabung dengan tim kami sebagai Software Engineer.'
+            },
+            {
+                title: 'Marketing Specialist',
+                company: 'PT. Market Leaders',
+                location: 'Surabaya',
+                description: 'Mencari Marketing Specialist dengan pengalaman di industri.'
+            },
+            {
+                title: 'UI/UX Designer',
+                company: 'PT. Creative Minds',
+                location: 'Bandung',
+                description: 'Menciptakan desain antarmuka dan pengalaman pengguna yang luar biasa.'
+            }
+        ];
+
+        // Fungsi untuk menampilkan lowongan kerja
+        function displayJobs() {
+            const jobList = document.getElementById('jobList');
+            jobList.innerHTML = ''; // Kosongkan daftar sebelum menambahkan
+
+            jobs.forEach(job => {
+                const jobItem = document.createElement('li');
+                jobItem.classList.add('job-item');
+
+                jobItem.innerHTML = `
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-company">${job.company}</div>
+                    <div class="job-location">${job.location}</div>
+                    <div class="job-description">${job.description}</div>
+                `;
+
+                jobList.appendChild(jobItem);
+            });
+        }
+
+        // Panggil fungsi untuk menampilkan lowongan kerja ketika halaman dimuat
+        window.onload = displayJobs;
+    </script>
+</body>
+</html>
