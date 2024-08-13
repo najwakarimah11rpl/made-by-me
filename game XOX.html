@@ -2,6 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#game-board {
+    display: inline-block;
+    border: 2px solid #000;
+    margin: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div id="game-board">
+        <div class="row">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+        </div>
+        <div class="row">
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+        </div>
+        <div class="row">
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+    </div>
+    <button id="restart">Restart</button>
+    <script src="script.js">
+const cells = document.querySelectorAll('.cell');
+const restartButton = document.getElementById('restart');
+let currentPlayer = 'X';
+let board = Array(9).fill(null);
+let gameOver = false;
+
+function checkWinner() {
+    const winningCombination = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]              // Diagonals
+    ];
+
+    for (const [a, b, c] of winningCombination) {
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            cells[a].style.backgroundColor = '#d4edda';
+            cells[b].style.backgroundColor = '#d4edda';
+            cells[c].style.backgroundColor = '#d4edda';
+            return board[a];
+        }
+    }
+
+    return board.includes(null) ? null : 'Draw';
+}
+
+function handleClick(event) {
+    const cell = event.target;
+    const index = cell.dataset.index;
+
+    if (gameOver || board[index]) return;
+
+    board[index] = currentPlayer;
+    cell.textContent = currentPlayer;
+    const winner = checkWinner();
+
+    if (winner) {
+        if (winner === 'Draw') {
+            alert("It's a draw!");
+        } else {
+            alert(`${winner} wins!`);
+        }
+        gameOver = true;
+    } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    }
+}
+
+function restartGame() {
+    board.fill(null);
+    cells.forEach(cell => {
+        cell.textContent = '';
+        cell.style.backgroundColor = '';
+    });
+    currentPlayer = 'X';
+    gameOver = false;
+}
+
+cells.forEach(cell => cell.addEventListener('click', handleClick));
+restartButton.addEventListener('click', restartGame);
+
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
