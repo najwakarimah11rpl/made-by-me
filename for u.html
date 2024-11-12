@@ -1,30 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for uuu</title>
+    <title>Maaf, Sayang! 😔</title>
     <style>
-        h2{color: aliceblue;
-    } h3{
-        color: aliceblue;
-    } p{color: aliceblue;}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f85032, #e73827);
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            width: 70%;
+            max-width: 500px;
+            animation: fadeIn 2s ease-out;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ff6347;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-out forwards;
+        }
+        .heart {
+            font-size: 80px;
+            color: #ff1493;
+            animation: heartbeat 1.5s infinite;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ff4500;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
     </style>
 </head>
-<body style="background-color: black;">
-    <script>
-        alert("haiii :)");
-        prompt("lagi apaa?");
-        alert("jadi gini, aku mau bilang sesuatuu");
-        alert("nonton film anak kolong yu 🍿🎥✮🎞️📹🤍");
-        alert("jumat besok di lippo ehe");
-        prompt("kamu mau ga? mau ya");
-        alert("HARUS MW GADA PENOLAKAN WKWK");
-    </script>
-    <!-- <h2>ss jawaban kamu dan kirim ke aku sekarang, aku tunggu yaa</h2> -->
-     <h3>ss jawaban kamu dan kirim ke aku sekarang, aku tunggu yaa</h3>
-    <h3>bole liat trailer nya dulu ko ehek ⸜(｡˃ ᵕ ˂ )⸝♡</h3>
-    <p>https://youtu.be/_vVfn4-TXbk?si=AMYJrdmDrNPKjuiu</p>
-    https:youtu.be/_vVfn4-TXbk?si=AMYJrdmDrNPKjuiu
+<body>
+
+<div class="container">
+    <h1>Maaf, Sayang! 😔</h1>
+    <p>Aku tahu aku udah ngomong kasar kemarin, dan aku benar-benar menyesal. Aku janji nggak akan ngomong kasar lagi, karena kamu layak diperlakukan lebih baik. 😓💖</p>
+    <p>Sayang, kamu adalah orang yang sangat berarti buat aku. Kalau aku bisa menarik kembali kata-kata yang sudah keluar, aku pasti akan melakukannya. Tapi yang bisa aku lakukan sekarang cuma minta maaf dan berjanji nggak akan mengulanginya lagi.</p>
+    <p>Jangan biarkan kata-kata salah menghalangi kita, yuk beri aku kesempatan kedua untuk jadi lebih baik lagi. 💫</p>
+
+    <div class="heart">💖</div>
+
+    <a href="mailto:nama.pacar@example.com?subject=Maaf%20Sayang&body=Aku%20janji%20gak%20akan%20ngomong%20kasar%20lagi.%20Maukah%20kamu%20maafin%20aku%3F%20🙏" class="button">Maukah Kamu Maafin Aku? 🙏</a>
+</div>
+
 </body>
 </html>
