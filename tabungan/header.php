@@ -2,7 +2,7 @@
 // PHP Variables untuk konten halaman
 $title = "Tabungan Keren";
 $heroHeading = "Selamat Datang di Tabungan Keren!";
-$heroSubheading = "Dengan Menabung, hidup lebih Keren! Menabung dengan Keamanan dan Kemudahan Terjamin!";
+$heroSubheading = "Menabung dengan Keamanan dan Kemudahan Terjamin, Hidup Lebih Keren!";
 $ctaText = "Mulai Menabung Sekarang!";
 ?>
 <!DOCTYPE html>
@@ -17,19 +17,19 @@ $ctaText = "Mulai Menabung Sekarang!";
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #f0f0f0;
             color: #333;
         }
 
         /* Header */
         header {
-            background-color: #2e8b57; /* Hijau Tabungan Keren */
+            background-color: #00796b; /* Warna Hijau Keren */
             color: white;
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         header .logo img {
@@ -53,87 +53,105 @@ $ctaText = "Mulai Menabung Sekarang!";
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
+            transition: color 0.3s;
         }
 
         header nav ul li a:hover {
-            text-decoration: underline;
+            color: #ff5722; /* Warna Oranye untuk Hover */
         }
 
         /* Hero Section */
         .hero {
-            background-color: #32cd32; /* Hijau Terang */
+            background: linear-gradient(135deg, #009688, #4caf50); /* Gradient Warna Hijau dan Teal */
             color: white;
-            padding: 80px 20px;
+            padding: 120px 20px;
             text-align: center;
-            background-image: url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .hero h2 {
             font-size: 48px;
             font-weight: bold;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .cta-btn {
-            background-color: #ffffff;
-            color: #2e8b57;
+            background-color: #ff5722;
+            color: white;
             padding: 15px 30px;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
             font-size: 18px;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .cta-btn:hover {
-            background-color: #e0e0e0;
+            background-color: #e64a19;
+            transform: scale(1.05);
         }
 
         /* Features Section */
         .features {
-            padding: 60px 20px;
-            display: flex;
-            justify-content: space-around;
+            padding: 80px 20px;
             background-color: #ffffff;
+            text-align: center;
         }
 
         .features h2 {
-            text-align: center;
             font-size: 36px;
-            width: 100%;
             margin-bottom: 40px;
+            color: #00796b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .feature {
-            text-align: center;
+            display: inline-block;
             width: 30%;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: #fafafa;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .feature img {
-            width: 70px;
+            width: 80px;
             margin-bottom: 20px;
         }
 
         .feature h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
-            font-weight: bold;
+            color: #00796b;
         }
 
         .feature p {
             font-size: 16px;
         }
 
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
         /* Footer */
         footer {
-            background-color: #2e8b57;
+            background-color: #00796b;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -154,10 +172,31 @@ $ctaText = "Mulai Menabung Sekarang!";
             color: white;
             text-decoration: none;
             font-size: 14px;
+            font-weight: bold;
         }
 
         footer ul li a:hover {
             text-decoration: underline;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .features {
+                padding: 60px 20px;
+            }
+
+            .feature {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -173,7 +212,6 @@ $ctaText = "Mulai Menabung Sekarang!";
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Fitur</a></li>
-                <!-- <li><a href="#">Promo</a></li> -->
                 <li><a href="#">Kontak</a></li>
             </ul>
         </nav>
