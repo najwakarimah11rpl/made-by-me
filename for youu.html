@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Sayang!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fce4ec; /* Latar belakang cerah */
+            color: #333;
+        }
+        header {
+            background-image: url('header-image.jpg'); /* Ganti dengan foto kalian */
+            background-size: cover;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            font-size: 3em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4em;
+            color: #ff4081; /* Warna teks judul cerah */
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ff80ab; /* Warna teks subjudul cerah */
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 30px 20px;
+        }
+        .container h2 {
+            font-size: 2.5em;
+            color: #d81b60; /* Warna heading cerah */
+            font-family: 'Pacifico', cursive;
+        }
+        .slideshow {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .slideshow img {
+            width: 280px;
+            height: 280px;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+        .slideshow img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+        .countdown {
+            font-size: 2.5em;
+            color: #ff4081; /* Warna countdown cerah */
+            margin-top: 20px;
+            font-family: 'Pacifico', cursive;
+        }
+        footer {
+            background: #ff80ab; /* Warna footer cerah */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: 'Pacifico', cursive;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+        }
+        .heart {
+            color: red;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Ulang Tahun, Sayang!</h1>
+        <p>Hari spesialmu sudah datang. Semoga hari ini penuh dengan cinta dan kebahagiaan.</p>
+    </header>
+
+    <div class="container">
+        <h2>Kenangan Indah Kita</h2>
+        <div class="slideshow">
+            <img src="photo1.jpg" alt="Kenangan 1">
+            <img src="photo2.jpg" alt="Kenangan 2">
+            <img src="photo3.jpg" alt="Kenangan 3">
+            <img src="photo4.jpg" alt="Kenangan 4">
+        </div>
+
+        <div class="countdown">
+            <p>Waktu tersisa hingga hari spesialmu: <span id="countdown"></span></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Dengan cinta dari <span class="heart">❤️</span> [Nama Kamu]</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const countDownDate = new Date("Mar 06, 2025 00:00:00").getTime();
+        const countdownFunction = setInterval(function() {
+            let now = new Date().getTime();
+            let distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "HAPPY BIRTHDAY!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
